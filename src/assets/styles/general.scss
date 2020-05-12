@@ -1,0 +1,33 @@
+@import "./variable";
+@import "./button";
+@import "./card";
+
+* {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+}
+
+.fondo {
+    background-size: cover;
+    height: 100vh;
+    align-content: center;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/dev-app-fusa.appspot.com/o/proyecto%2Ffondo%20formularios-01.png?alt=media&token=9ecef057-09ec-471e-9432-1f1bbf669c92");
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    align-items: baseline;
+    justify-content: center;
+}
+
+.center-component {
+    display: flex;
+    justify-content: center;
+}
+
+.margin10{
+    margin: 10px 10px 10px 10px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0; 
+}

@@ -1,0 +1,43 @@
+.btn-app {
+    border-color: $primary-color;
+    background-color: $blanco;
+    border-width: 1px;
+    border-radius: 30px;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: $primary-color;
+    cursor: pointer;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 1);
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+}
+
+.btn-app:active {
+    border-color: $primary-color;
+    color: $primary-color;
+    border-width: 1.4px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.btn-app:hover {
+    border-color: $primary-color-slow;
+    color: $blanco;
+    background-color: $primary-color-slow;
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
