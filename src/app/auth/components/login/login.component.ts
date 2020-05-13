@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     this.userService.loginUser(this.form.value).subscribe(data => {
+      localStorage.setItem("token", data.message.token)
       alert('Logueo exitoso');
       this.router.navigate(['/home'])
     }, error => {

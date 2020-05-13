@@ -1,1 +1,36 @@
-<p>chat works!</p>
+<main>
+    <div class="contenedor-general">
+        <div class="card">
+            <div class="contenedor-iframe">
+                <iframe src="https://www.youtube.com/embed/dLu3mUw4184" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="contenedor-general-derecha">
+                <div class="contenedor-titulo bg-light" *ngIf="room">
+                    <div> <b>Sala: </b>{{room.roomName}}</div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            En la sala
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <span class="dropdown-item" *ngFor="let user of room.users">{{user.userName}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-chat">
+                    <div class="card-message" *ngFor="let message of messages">
+                        <div class="nombre-contenedor">
+                            <b>{{message.user.userName}}</b>
+                        </div>
+                        <div>
+                            <p>{{message.message}}</p>
+                            <span>{{message.createdAt | date: 'dd/MM/yyyy'}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
