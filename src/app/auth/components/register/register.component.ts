@@ -35,8 +35,7 @@ export class RegisterComponent implements OnInit {
       this.form.reset()
       this.router.navigate(['/auth/login'])
     }, error => {
-      alert('Ocurrio un error')
-      console.log(error);
+      alert(error.error.error)
     })
   }
 

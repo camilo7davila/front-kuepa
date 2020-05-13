@@ -13,11 +13,11 @@
                 <a class="nav-link" href="#">Chat<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Perfil</a>
+                <a class="nav-link" type="button" (click) = "logout()">Cerrar sesión</a>
             </li>
         </ul>
         <span class="navbar-text">
-            Navbar text with an inline element
+            Bienvenido {{decode.name}}
         </span>
     </div>
 </nav>

@@ -22,6 +22,11 @@ export class UserService {
     return this.http.post<any>(finalUrl, data)
   }
 
+  logoutUser (id) {
+    const finalUrl = `${this.url}/auth/logout`
+    return this.http.post<any>(finalUrl, id)
+  }
+
   parseJwt(token: any) {
     if (token) {
       const base64Url = token.split('.')[1];

@@ -2,7 +2,7 @@
     <div class="contenedor-general">
         <div class="card">
             <div class="contenedor-iframe">
-                <iframe src="https://www.youtube.com/embed/dLu3mUw4184" frameborder="0"
+                <iframe src="https://www.youtube.com/embed/dLu3mUw4184?autoplay=1" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
@@ -15,20 +15,48 @@
                             En la sala
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <span class="dropdown-item" *ngFor="let user of room.users">{{user.userName}}</span>
+                            <ng-container *ngFor="let user of room.users"  [ngSwitch]="user.status">
+                                <span class="dropdown-item" *ngSwitchCase="true">{{user.userName}} <small style="color: green;">Online</small></span>
+                                <span class="dropdown-item" *ngSwitchCase="false">{{user.userName}} <small style="color: grey;">offline</small></span>
+                            </ng-container>
                         </div>
                     </div>
                 </div>
                 <div class="contenedor-chat">
-                    <div class="card-message" *ngFor="let message of messages">
-                        <div class="nombre-contenedor">
+                    <div class="card-message" *ngFor="let message of messages" [ngSwitch]="message.user.rol">
+                        <div class="nombre-contenedor" *ngSwitchCase="'ROL_STUDENT'">
                             <b>{{message.user.userName}}</b>
+                        </div>
+                        <div class="nombre-contenedor moderador" *ngSwitchCase="'ROL_MODERATOR'">
+                            <b>{{message.user.userName}}</b>
+                            <span>Moderador</span>
                         </div>
                         <div>
                             <p>{{message.message}}</p>
                             <span>{{message.createdAt | date: 'dd/MM/yyyy'}}</span>
                         </div>
                     </div>
+                    <ng-container>
+                        <div class="card-message" *ngFor="let socket of sockets" [ngSwitch]="socket.user.rol">
+                            <div class="nombre-contenedor" *ngSwitchCase="'ROL_STUDENT'">
+                                <b>{{socket.user.userName}}</b>
+                            </div>
+                            <div class="nombre-contenedor moderador" *ngSwitchCase="'ROL_MODERATOR'">
+                                <b>{{socket.user.userName}}</b>
+                                <span>Moderador</span>
+                            </div>
+                            <div>
+                                <p>{{socket.message}}</p>
+                                <span>{{socket.createdAt | date: 'dd/MM/yyyy'}}</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="contenedor-enviar">
+                    <input type="text" name="enviar" id="enviar" [(ngModel)]="text">
+                    <a type="button" (click)="sendMessage()">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>

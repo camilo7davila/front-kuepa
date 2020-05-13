@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { LoginGuard } from './core/guards/login/login.guard';
 
 
 const routes: Routes = [
@@ -10,10 +11,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        canActivate: [LoginGuard],
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'home',
+        canActivate: [LoginGuard],
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       }
     ]

@@ -1,0 +1,25 @@
+.footer {
+    position: absolute;
+    bottom: 0px;
+    font-family: "Open Sans", sans-serif;
+    color: #f1f4f9;
+    height: 50px;
+    width: 100%;
+}
+
+.container{
+    height: 100%;
+    & .row{
+        font-size: 10px;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        & h3{
+            font-size: 18px;
+            margin: 0;
+        }
+    }
+}
+
+
