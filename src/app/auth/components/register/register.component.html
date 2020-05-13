@@ -1,1 +1,58 @@
-<p>register works!</p>
+<main id="principal-container">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <figure>
+                    <img src="../../../../assets/image/logoKuepa.png" alt="">
+                </figure>
+                <h5 class="card-title"><b>REGISTRO</b></h5>
+                <form [formGroup]="form">
+                    <div class="form-group">
+                        <label>Nombre estudiante :</label>
+                        <input type="text" formControlName="name" class="form-control" id="name">
+                        <div *ngIf="nameField.errors && nameField.dirty || nameField.touched">
+                            <p *ngIf="nameField.hasError('required')" class="alert alert-danger" role="alert">
+                                Este campo es obligatorio
+                            </p>
+                            <p *ngIf="nameField.hasError('minlength')" class="alert alert-danger" role="alert">
+                                El minimo del nombre es de 4 letras
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nickname:</label>
+                        <input type="text" formControlName="userName" class="form-control" id="userName">
+                        <div *ngIf="userNameField.errors && userNameField.dirty || userNameField.touched">
+                            <p *ngIf="userNameField.hasError('required')" class="alert alert-danger" role="alert">
+                                Este campo es obligatorio
+                            </p>
+                            <p *ngIf="userNameField.hasError('minlength')" class="alert alert-danger" role="alert">
+                                Nickname muy corto
+                            </p>
+                            <p *ngIf="userNameField.hasError('maxlength')" class="alert alert-danger" role="alert">
+                                Nickname muy largo
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Contaseña:</label>
+                        <input type="password" formControlName="password" class="form-control" id="password">
+                        <div *ngIf="passwordField.errors && passwordField.dirty || passwordField.touched">
+                            <p *ngIf="passwordField.hasError('required')" class="alert alert-danger" role="alert">
+                                Este campo es obligatorio
+                            </p>
+                            <p *ngIf="passwordField.hasError('minlength')" class="alert alert-danger" role="alert">
+                                Contraseña muy corta
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" (click)="registerUser()" data-dismiss="modal"
+                            [disabled]="form.invalid">Crear</button>
+                        <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active">Vamos ha Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
